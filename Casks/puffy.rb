@@ -1,13 +1,13 @@
 cask "puffy" do
-  version "0.1.1"
+  version "0.1.2"
 
   on_arm do
     url "https://github.com/susu-pro/puffy/releases/download/v#{version}/Puffy_#{version}_aarch64.dmg"
-    sha256 "476eb040366ebf5f0ffbc5cf807cb2688d0e6ec94bfd8c74825a17c5c33fe1f9"
+    sha256 "1b714e6ae852a4efc3d36d6bc411fa0e3a402c3f41d21dd1e8a207797f0a366f"
   end
   on_intel do
     url "https://github.com/susu-pro/puffy/releases/download/v#{version}/Puffy_#{version}_x64.dmg"
-    sha256 "94029c1be3e148f53204b05f4dbe7fbe33f9c739f10637cd4d574db3de7df7d5"
+    sha256 "90f7ce3342dbf353ab5ab84ecf1a4fb1817133320c5ff63c6a4db98e3081696c"
   end
 
   name "Puffy"
@@ -15,8 +15,10 @@ cask "puffy" do
   homepage "https://github.com/susu-pro/puffy"
 
   app "Puffy.app"
+  binary "#{appdir}/Puffy.app/Contents/MacOS/Puffy", target: "puffy"
 
   zap trash: [
+    "~/.local/bin/puffy",
     "~/Library/Application Support/com.suapril.puffy",
     "~/Library/Caches/com.suapril.puffy",
     "~/Library/Preferences/com.suapril.puffy.plist",
